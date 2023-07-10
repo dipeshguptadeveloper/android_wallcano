@@ -36,8 +36,8 @@ class MainActivity : AppCompatActivity() {
 
             mainActivityViewModel.getSearchWallpaper(
                 "rAwzTmcXYsSfCf6C5uUThO0izNTor82oYH3S78hab8COjw9IpYCC6FA3",
-                "nature",
-                80
+                "technology",
+                20
             )
 
             mainActivityViewModel.listPhotos.observe(this@MainActivity) { photos ->
