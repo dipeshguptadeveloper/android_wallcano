@@ -1,7 +1,9 @@
 package com.dkgtech.wallcano
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -32,7 +34,11 @@ class MainActivity : AppCompatActivity() {
         with(binding) {
             rcViewWallpaper.layoutManager = GridLayoutManager(this@MainActivity, 2)
 
-            mainActivityViewModel.getSearchWallpaper("nature", 20)
+            mainActivityViewModel.getSearchWallpaper(
+                "rAwzTmcXYsSfCf6C5uUThO0izNTor82oYH3S78hab8COjw9IpYCC6FA3",
+                "nature",
+                80
+            )
 
             mainActivityViewModel.listPhotos.observe(this@MainActivity) { photos ->
                 rcViewWallpaper.adapter = RecyclerWallpaperAdapter(this@MainActivity, photos)
@@ -41,6 +47,30 @@ class MainActivity : AppCompatActivity() {
             mainActivityViewModel.errMsg.observe(this@MainActivity) { errorMsg ->
                 Toast.makeText(this@MainActivity, errorMsg, Toast.LENGTH_SHORT).show()
 
+            }
+
+
+            btnSearch.setOnClickListener {
+                val searchText = edtSearch.text.toString()
+
+                mainActivityViewModel.getSearchWallpaper(
+                    "rAwzTmcXYsSfCf6C5uUThO0izNTor82oYH3S78hab8COjw9IpYCC6FA3",
+                    searchText,
+                    80
+                )
+
+                mainActivityViewModel.listPhotos.observe(this@MainActivity) { photos ->
+                    rcViewWallpaper.adapter = RecyclerWallpaperAdapter(this@MainActivity, photos)
+                }
+
+                mainActivityViewModel.errMsg.observe(this@MainActivity) { errorMsg ->
+                    Toast.makeText(this@MainActivity, errorMsg, Toast.LENGTH_SHORT).show()
+
+                }
+            }
+
+            btnCuratedWallpaper.setOnClickListener {
+                startActivity(Intent(this@MainActivity, CuratedWallpaperActivity::class.java))
             }
 
         }

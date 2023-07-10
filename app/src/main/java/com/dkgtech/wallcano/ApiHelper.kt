@@ -1,21 +1,28 @@
 package com.dkgtech.wallcano
 
+import com.dkgtech.wallcano.model.CuratedWallpaperModel
 import com.dkgtech.wallcano.model.WallpaperModel
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Headers
+import retrofit2.http.Header
 import retrofit2.http.Query
 
 interface ApiHelper {
 
-    @Headers("Authorization : rAwzTmcXYsSfCf6C5uUThO0izNTor82oYH3S78hab8COjw9IpYCC6FA3")
     @GET("search")
     fun getSearchWallpaper(
+        @Header("Authorization") auth: String,
         @Query("query") query: String,
         @Query("per_page") per_page: Int
     ): Call<WallpaperModel>
+
+    @GET("curated")
+    fun getCuratedWallpaper(
+        @Header("Authorization") auth: String,
+        @Query("per_page") per_page: Int
+    ): Call<CuratedWallpaperModel>
 
 
     companion object {
