@@ -68,6 +68,4 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
 
-//    searchbar
-    implementation 'com.github.mancj:MaterialSearchBar:0.8.5'
 }

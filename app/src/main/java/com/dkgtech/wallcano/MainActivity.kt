@@ -58,15 +58,15 @@ class MainActivity : AppCompatActivity() {
                     searchText,
                     80
                 )
+            }
 
-                mainActivityViewModel.listPhotos.observe(this@MainActivity) { photos ->
-                    rcViewWallpaper.adapter = RecyclerWallpaperAdapter(this@MainActivity, photos)
-                }
+            mainActivityViewModel.listPhotos.observe(this@MainActivity) { photos ->
+                rcViewWallpaper.adapter = RecyclerWallpaperAdapter(this@MainActivity, photos)
+            }
 
-                mainActivityViewModel.errMsg.observe(this@MainActivity) { errorMsg ->
-                    Toast.makeText(this@MainActivity, errorMsg, Toast.LENGTH_SHORT).show()
+            mainActivityViewModel.errMsg.observe(this@MainActivity) { errorMsg ->
+                Toast.makeText(this@MainActivity, errorMsg, Toast.LENGTH_SHORT).show()
 
-                }
             }
 
             btnCuratedWallpaper.setOnClickListener {
