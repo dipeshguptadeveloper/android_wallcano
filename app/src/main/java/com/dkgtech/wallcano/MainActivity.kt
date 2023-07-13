@@ -16,6 +16,10 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var mainActivityViewModel: MainActivityViewModel
 
+    companion object {
+        val IMAGE_KEY = "imgUrl"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)

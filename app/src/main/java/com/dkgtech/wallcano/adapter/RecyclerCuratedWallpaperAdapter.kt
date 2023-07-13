@@ -1,11 +1,15 @@
 package com.dkgtech.wallcano.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.dkgtech.wallcano.CuratedWallpaperActivity
+import com.dkgtech.wallcano.MainActivity
+import com.dkgtech.wallcano.WallpaperActivity
 import com.dkgtech.wallcano.databinding.CuratedWallpaperRowBinding
 import com.dkgtech.wallcano.model.Photos
 
@@ -34,6 +38,14 @@ class RecyclerCuratedWallpaperAdapter(val context: Context, val curatedListPhoto
         with(holder.binding) {
             Glide.with(context).load(Uri.parse(curatedListPhoto[position].src!!.portrait))
                 .into(imgSrc)
+
+            context.startActivity(
+                Intent(context, WallpaperActivity::class.java).putExtra(
+                    CuratedWallpaperActivity.IMAGE_KEY_URL,
+                    curatedListPhoto[position].src!!.portrait
+                )
+            )
+
         }
     }
 }

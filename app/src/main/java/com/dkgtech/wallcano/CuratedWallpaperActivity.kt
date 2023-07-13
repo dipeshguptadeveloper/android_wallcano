@@ -16,6 +16,10 @@ class CuratedWallpaperActivity : AppCompatActivity() {
 
     lateinit var mainActivityViewModel: MainActivityViewModel
 
+    companion object {
+        val IMAGE_KEY_URL = "imgUrl"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCuratedWallpaperBinding.inflate(layoutInflater)

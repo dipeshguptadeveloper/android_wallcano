@@ -70,4 +70,7 @@ dependencies {
 
 //    searchbar
     implementation 'com.github.mancj:MaterialSearchBar:0.8.5'
+
+//    picasso
+    implementation 'com.squareup.picasso:picasso:2.8'
 }
